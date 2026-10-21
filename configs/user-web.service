@@ -1,0 +1,19 @@
+[Unit]
+Description=Elevvo Python Web Service
+After=network.target
+
+[Service]
+Type=simple
+User=user-web
+Group=user-web
+WorkingDirectory=/opt/user-web
+ExecStart=/usr/bin/python3 /opt/user-web/server.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
